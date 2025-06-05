@@ -36,7 +36,7 @@ func main() {
 		return
 	}
 	ip := ipaddr[0].String()
-	logger.Log("IPAddress: " + ip)
+	logger.LogVIp(ip)
 
 	logger.Log("Getting location info...")
 	req, err := http.Get("https://ipinfo.io/" + ip + "/json")
@@ -53,11 +53,11 @@ func main() {
 	}
 
 	logger.Log("\n\nLocation info:")
-	logger.Log("\nIP: " + ipinfo.IP)
-	logger.Log("\nCity: " + ipinfo.City)
-	logger.Log("\nRegion: " + ipinfo.Region)
-	logger.Log("\nCountry: " + ipinfo.Country)
-	logger.Log("\nOrg: " + ipinfo.Org + "\n\n")
+	logger.LogVIp(ipinfo.IP)
+	logger.LogVCity(ipinfo.City)
+	logger.LogVnRegion(ipinfo.Region)
+	logger.LogVCountry(ipinfo.Country)
+	logger.LogVOrg(ipinfo.Org)
 
 	logger.Log("Press Enter to exit...")
 	reader.ReadBytes('\n')
